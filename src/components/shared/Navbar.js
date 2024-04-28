@@ -8,6 +8,7 @@ import Image from "next/image";
 import logo from "@/assets/logo.png";
 import { IconButton } from "@mui/material";
 import Link from "next/link";
+import Header from "./Header";
 
 //icon
 import FacebookIcon from "@mui/icons-material/Facebook";
@@ -46,50 +47,53 @@ const navItems = [
 
 function Navbar() {
   return (
-    <AppBar position="static" sx={{ backgroundColor: "black" }}>
-      <Container maxWidth="xl">
-        <Toolbar
-          disableGutters
-          sx={{
-            backgroundColor: "black",
-            color: "white",
-            textAlign: "center",
-          }}
-        >
-          <Image src={logo} alt="Logo" />
-          <Box
+    <>
+      <Header></Header>
+      <AppBar position="static" sx={{ backgroundColor: "black" }}>
+        <Container maxWidth="xl">
+          <Toolbar
+            disableGutters
             sx={{
-              flexGrow: 1,
-              display: { xs: "none", md: "flex" },
-              justifyContent: "center",
+              backgroundColor: "black",
+              color: "white",
+              textAlign: "center",
             }}
           >
-            {navItems.map((item) => (
-              <Link key={item.route} href={item.pathname}>
-                <Button className="text-white">{item.route}</Button>
-              </Link>
-            ))}
-          </Box>
-          <Box>
-            <IconButton sx={{ color: "white" }}>
-              <FacebookIcon />
-            </IconButton>
-            <IconButton sx={{ color: "white" }}>
-              <InstagramIcon />
-            </IconButton>
-            <IconButton sx={{ color: "white" }}>
-              <XIcon />
-            </IconButton>
-            <IconButton sx={{ color: "white" }}>
-              <LinkedInIcon />
-            </IconButton>
-            <IconButton sx={{ color: "white" }}>
-              <YouTubeIcon />
-            </IconButton>
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
+            <Image src={logo} alt="Logo" />
+            <Box
+              sx={{
+                flexGrow: 1,
+                display: { xs: "none", md: "flex" },
+                justifyContent: "center",
+              }}
+            >
+              {navItems.map((item) => (
+                <Link key={item.route} href={item.pathname}>
+                  <Button className="text-white">{item.route}</Button>
+                </Link>
+              ))}
+            </Box>
+            <Box>
+              <IconButton sx={{ color: "white" }}>
+                <FacebookIcon />
+              </IconButton>
+              <IconButton sx={{ color: "white" }}>
+                <InstagramIcon />
+              </IconButton>
+              <IconButton sx={{ color: "white" }}>
+                <XIcon />
+              </IconButton>
+              <IconButton sx={{ color: "white" }}>
+                <LinkedInIcon />
+              </IconButton>
+              <IconButton sx={{ color: "white" }}>
+                <YouTubeIcon />
+              </IconButton>
+            </Box>
+          </Toolbar>
+        </Container>
+      </AppBar>
+    </>
   );
 }
 export default Navbar;
