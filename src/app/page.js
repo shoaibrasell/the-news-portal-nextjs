@@ -1,11 +1,21 @@
-import React from 'react';
+import LatesNews from "@/components/ui/LatestNews/LatesNews";
+import SideBar from "@/components/ui/SideBar/SideBar";
+import { Grid } from "@mui/material";
+import React from "react";
 
-const Home = () => {
+const HomePage = () => {
   return (
-    <div>
-      <h1 className='text-4xl text-center mt-6 '>This is my Home Page</h1>
-    </div>
+    <>
+      <Grid container spacing={2}>
+        <Grid item xs={8}>
+         <LatesNews></LatesNews>
+        </Grid>
+        <Grid item xs={4}>
+        <SideBar></SideBar>
+        </Grid>
+      </Grid>
+    </>
   );
 };
 
-export default Home;
+export default HomePage;
